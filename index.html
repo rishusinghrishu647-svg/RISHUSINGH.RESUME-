@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Rishu Singh, BBA Finance student and Accounts Intern. Exploring accounting, taxation, and financial analysis.">
+  <title>Rishu Singh | Finance Portfolio</title>
+  <style>
+    :root {
+      --site-primary: #142B4A;
+      --site-secondary: #B8955B;
+      --site-background: #F6F8FB;
+      --site-on-primary: #FFFFFF;
+      --site-on-secondary: #101D2F;
+      --site-on-background: #17263A;
+      --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --site-font-heading: Georgia, "Times New Roman", serif;
+      --site-heading-scale: 1;
+      --site-spacing-scale: 1;
+      --site-radius-scale: 1;
+      --site-decoration-opacity: 1;
+      --surface: light-dark(#FFFFFF, #202938);
+      --surface-soft: light-dark(#EDF1F6, #252F40);
+      --text-muted: light-dark(#5D6B7D, #B7C2D0);
+      --line: light-dark(#DCE3EC, #3C485B);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: light dark; }
+    body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    .app-root { background-color: var(--site-background); color: var(--site-on-background); min-height: 100vh; border-radius: 0; overflow: hidden; }
+    .nav-wrap { max-width: 1160px; margin: 0 auto; padding: calc(22px * var(--site-spacing-scale)) 6%; }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; text-decoration: none; }
+    .brand span { color: var(--site-secondary); }
+    .nav-links { display: flex; gap: 25px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; font-size: .88rem; color: var(--text-muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--site-secondary); }
+    .nav-cta { border: 1px solid var(--site-primary); border-radius: calc(999px * var(--site-radius-scale)); padding: 10px 16px; color: var(--site-primary) !important; }
+    .hero { background: var(--site-primary); color: var(--site-on-primary); position: relative; }
+    .hero-inner { max-width: 1160px; margin: 0 auto; padding: calc(90px * var(--site-spacing-scale)) 6% calc(96px * var(--site-spacing-scale)); display: grid; grid-template-columns: 1fr; align-items: center; gap: 30px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 700; color: var(--site-secondary); display: flex; gap: 10px; align-items: center; }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1, h2, h3 { margin: 0; }
+    h1 { font-family: var(--site-font-heading); font-weight: 500; font-size: calc(clamp(3rem, 6.4vw, 5.7rem) * var(--site-heading-scale)); line-height: .98; letter-spacing: -.055em; margin: 24px 0; }
+    h1 em { color: var(--site-secondary); font-weight: 400; }
+    .hero-copy { max-width: 700px; color: #E0E7F0; line-height: 1.8; font-size: 1.04rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; text-decoration: none; border: 1px solid transparent; padding: 13px 19px; border-radius: calc(999px * var(--site-radius-scale)); font-weight: 700; font-size: .9rem; cursor: pointer; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--site-secondary); color: var(--site-on-secondary); }
+    .btn-outline { color: #FFFFFF; border-color: #8091A8; }
+    .profile-card { background: #214B41; border: 1px solid #42665A; padding: 28px; border-radius: calc(24px * var(--site-radius-scale)); position: relative; z-index: 1; }
+    .profile-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 20px; }
+    .profile-meta strong { display: block; font-size: 1rem; }
+    .profile-meta small { color: #C3D3CA; display: block; margin-top: 5px; }
+    .available { width: 10px; height: 10px; border-radius: 50%; background: #A8D5A2; box-shadow: 0 0 0 5px #42665A; flex-shrink: 0; }
+    .hero-decoration { position: absolute; right: -70px; bottom: -145px; width: 350px; height: 350px; border: 1px solid #FFFFFF; opacity: calc(.08 * var(--site-decoration-opacity)); border-radius: 50%; pointer-events: none; }
+    .hero-decoration::after { content: ""; position: absolute; inset: 28px; border: 1px solid #FFFFFF; border-radius: 50%; }
+    section { scroll-margin-top: 30px; }
+    .section { max-width: 1160px; margin: 0 auto; padding: calc(88px * var(--site-spacing-scale)) 6%; }
+    .section-kicker { color: #526B8B; font-size: .75rem; text-transform: uppercase; letter-spacing: .15em; font-weight: 800; margin-bottom: 15px; }
+    .section-title { font-family: var(--site-font-heading); font-size: calc(clamp(2.2rem, 4vw, 3.5rem) * var(--site-heading-scale)); font-weight: 500; letter-spacing: -.04em; line-height: 1.1; max-width: 760px; }
+    .section-lead { color: var(--text-muted); line-height: 1.85; max-width: 720px; margin: 20px 0 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .about-note { border-left: 2px solid var(--site-secondary); padding: 8px 0 8px 24px; color: var(--text-muted); line-height: 1.8; }
+    .about-note strong { color: var(--site-on-background); }
+    .skills-section { background: var(--surface-soft); }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 38px; }
+    .skill-card { background: var(--surface); padding: 23px 20px; border: 1px solid var(--line); border-radius: calc(15px * var(--site-radius-scale)); min-height: 145px; }
+    .skill-number { font-size: .72rem; color: #526B8B; font-weight: 800; letter-spacing: .12em; }
+    .skill-card h3 { margin-top: 26px; font-size: 1rem; line-height: 1.4; }
+    .skill-card p { font-size: .83rem; color: var(--text-muted); line-height: 1.6; margin: 8px 0 0; }
+    .experience-card { margin-top: 35px; background: var(--surface); border: 1px solid var(--line); border-radius: calc(20px * var(--site-radius-scale)); padding: 30px; display: grid; grid-template-columns: 1fr 2fr; gap: 35px; }
+    .experience-date { color: var(--text-muted); font-size: .85rem; line-height: 1.7; }
+    .experience-main h3 { font-family: var(--site-font-heading); font-size: 1.7rem; font-weight: 500; }
+    .experience-main .role { margin: 7px 0 15px; color: #526B8B; font-weight: 700; }
+    .experience-main p, .experience-main li { color: var(--text-muted); line-height: 1.8; font-size: .93rem; }
+    .experience-main ul { padding-left: 19px; margin: 10px 0 0; }
+    .education { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 34px; }
+    .education-card { border-top: 2px solid var(--site-secondary); padding: 22px 0; }
+    .education-card h3 { font-size: 1.08rem; }
+    .education-card p { color: var(--text-muted); line-height: 1.7; margin: 8px 0 0; font-size: .92rem; }
+    .contact-section { background: var(--site-primary); color: var(--site-on-primary); }
+    .contact-inner { max-width: 1160px; margin: 0 auto; padding: calc(80px * var(--site-spacing-scale)) 6%; display: grid; grid-template-columns: 1.2fr .8fr; gap: 60px; align-items: center; }
+    .contact-section .section-kicker { color: var(--site-secondary); }
+    .contact-section .section-title { max-width: 600px; }
+    .contact-section .section-lead { color: #DCE5F0; }
+    .contact-links { display: grid; gap: 12px; }
+    .contact-link { border: 1px solid #536681; padding: 16px 18px; border-radius: calc(12px * var(--site-radius-scale)); display: flex; justify-content: space-between; align-items: center; gap: 10px; text-decoration: none; transition: background .2s, border-color .2s; }
+    .contact-link:hover { background: #203957; border-color: var(--site-secondary); }
+    .contact-link small { display: block; color: #C5D1E0; margin-bottom: 4px; }
+    .contact-link strong { font-size: .92rem; font-weight: 600; overflow-wrap: anywhere; }
+    footer { background: var(--site-primary); color: #C5D1E0; border-top: 1px solid #354966; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; padding: 20px 6%; display: flex; justify-content: space-between; gap: 12px; font-size: .78rem; flex-wrap: wrap; }
+    .notice { font-size: .8rem; color: var(--text-muted); margin-top: 18px; }
+    .section { position: relative; }
+    .section-title { color: var(--site-on-background); }
+    .resume-panel, .experience-card, .skill-card { box-shadow: 0 8px 28px #142B4A08; }
+    .resume-panel { border-radius: 18px; }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--site-secondary); outline-offset: 4px; }
+    @media print { .nav-wrap, .hero-actions, .resume-actions, .contact-section, footer { display: none !important; } body, .app-root, .hero, .skills-section { background: white !important; color: #17263A !important; } .hero { color: #17263A !important; } .hero-copy { color: #42516A !important; } }
+    .hero-inner > div { animation: rise-in .85s cubic-bezier(.2,.7,.2,1) both; }
+    .hero { isolation: isolate; }
+    .hero::before { content: ""; position: absolute; z-index: -1; width: 420px; height: 420px; border: 1px solid #FFFFFF20; border-radius: 50%; top: -220px; left: 35%; box-shadow: 0 0 0 35px #FFFFFF08, 0 0 0 75px #FFFFFF05; animation: orbit-drift 18s ease-in-out infinite alternate; pointer-events: none; }
+    .skill-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 14px; background: var(--surface-soft); margin-bottom: 18px; color: var(--site-primary); font-size: .8rem; font-weight: 900; border: 1px solid var(--line); }
+    .skill-icon svg { width: 34px; height: 34px; display: block; }
+    .skill-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .skill-card:hover { transform: translateY(-7px) rotate(-.4deg); border-color: var(--site-secondary); box-shadow: 0 18px 38px #173D351A; }
+    .skill-card h3 { margin-top: 0; }
+    .skill-number { display: block; }
+    .resume-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .resume-panel { background: var(--surface); border: 1px solid var(--line); border-radius: calc(18px * var(--site-radius-scale)); padding: 28px; margin-top: 30px; }
+    .resume-panel p { color: var(--text-muted); line-height: 1.8; }
+    .language-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .language-pills span { padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: .88rem; background: var(--surface); }
+    @keyframes rise-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes orbit-drift { from { transform: translate3d(-20px, 0, 0) rotate(0); } to { transform: translate3d(35px, 22px, 0) rotate(18deg); } }
+    @media (max-width: 800px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; padding-top: 65px; }
+      .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 28px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .experience-card { grid-template-columns: 1fr; gap: 12px; }
+      .nav-links { gap: 12px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 480px) {
+      .section { padding-top: 62px; padding-bottom: 62px; }
+      .skills-grid, .education { grid-template-columns: 1fr; }
+      .skill-card { min-height: 120px; }
+      .profile-card { padding: 18px; }
+      .hero-inner { padding-bottom: 65px; }
+      .experience-card { padding: 22px; }
+      .nav-cta { padding: 8px 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="app-root" id="top">
+    <header class="nav-wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#top">RISHU<span>.</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#resume">Resume</a>
+          <a class="nav-cta" href="#contact">Let's connect ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">Finance · Accounting · Growth</div>
+            <h1 id="hero-title">Hello, I'm<br><em>Rishu Singh.</em></h1>
+            <p class="hero-copy">A BBA Finance student and Accounts Intern building practical experience in accounting, taxation, and financial reporting — with a long-term goal of becoming a Financial Analyst.</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="#experience">Explore my experience <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-outline" href="#contact">Get in touch</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-decoration" aria-hidden="true"></div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="about-grid">
+          <div>
+            <div class="section-kicker">A little about me</div>
+            <h2 class="section-title">Learning finance by doing the work.</h2>
+          </div>
+          <div>
+            <p class="section-lead">I am pursuing a Bachelor of Business Administration with a specialization in Finance and gaining hands-on industry exposure as an Accounts Intern. I enjoy understanding how accurate accounting, compliance, and financial information support day-to-day business decisions.</p>
+            <p class="section-lead">My current focus is strengthening my foundation in financial accounting, Microsoft Excel, Tally Prime, GST, TDS, ledger management, and financial documentation. I aim to keep learning, work carefully with financial records, and gradually build expertise in financial analysis, modelling, budgeting, and forecasting.</p>
+            <div class="about-note" style="margin-top:26px"><strong>My approach</strong><br>Stay curious, pay attention to detail, and turn every practical task into an opportunity to learn.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills-section" id="skills">
+        <div class="section">
+          <div class="section-kicker">What I'm building</div>
+          <h2 class="section-title">Skills & working knowledge</h2>
+          <p class="section-lead">A practical foundation in accounting tools and finance processes, with a focus on accuracy and continuous improvement.</p>
+          <div class="skills-grid">
+            <article class="skill-card"><div class="skill-icon" aria-label="Microsoft Excel logo"><svg viewBox="0 0 40 40" role="img"><rect x="4" y="4" width="32" height="32" rx="5" fill="#217346"/><path d="M13 12h14v16H13z" fill="#fff"/><path d="M8 10h12v20H8z" fill="#185C37"/><path d="m10 15 3.2 5-3.2 5h3l1.8-3.1 1.8 3.1h3l-3.2-5 3.2-5h-3l-1.8 3-1.8-3z" fill="#fff"/></svg></div><div class="skill-number">01 / TOOLS</div><h3>Microsoft Excel</h3><p>SUM, SUMIF, COUNT, COUNTIF, COUNTIFS, IF, IFERROR, VLOOKUP, HLOOKUP, XLOOKUP, INDEX and MATCH. Professional reports, PivotTables and charts.</p></article>
+            <article class="skill-card"><div class="skill-icon" aria-label="Tally Prime inspired logo"><svg viewBox="0 0 40 40" role="img"><rect x="3" y="3" width="34" height="34" rx="6" fill="#DDF1FF"/><path d="M9 11h22v5H9zM9 19h15v5H9zM9 27h22v4H9z" fill="#1769AA"/><path d="M27 19h4v5h-4z" fill="#E87524"/></svg></div><div class="skill-number">02 / SOFTWARE</div><h3>Tally Prime</h3><p>Sales and purchase entries, payment and receipt entries, bank reconciliation, and ledger reconciliation.</p></article>
+            <article class="skill-card"><div class="skill-icon" aria-label="GST compliance icon">GST</div><div class="skill-number">03 / GST</div><h3>GST Compliance</h3><p>GSTR-1 filing and GSTR-2B review/follow-up as part of practical GST compliance work.</p></article>
+            <article class="skill-card"><div class="skill-icon" aria-label="TDS compliance icon">TDS</div><div class="skill-number">04 / TDS & AUDIT</div><h3>TDS & Audit Support</h3><p>TDS filing and assisting with audit reports and supporting documentation.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-kicker">Practical learning</div>
+        <h2 class="section-title">Experience</h2>
+        <article class="experience-card">
+          <div class="experience-date">Current role<br><strong>2026 – Present</strong><br><span style="display:block;margin-top:8px">Noida, Uttar Pradesh</span></div>
+          <div class="experience-main">
+            <h3>Accounts Intern</h3>
+            <div class="role">MANGALYA BUILDTECH PVT LTD · Noida</div>
+            <p>Gaining hands-on exposure to accounting and finance workflows in a professional environment.</p>
+            <ul>
+              <li>Supporting accounting documentation and routine finance tasks.</li>
+              <li>Developing practical familiarity with ledgers, vouchers, and accounting records.</li>
+              <li>Building knowledge of GST/TDS-related work and financial documentation under guidance.</li>
+              <li>Applying Excel and accounting fundamentals to assigned tasks while learning workplace processes.</li>
+            </ul>
+            <p class="notice">Update these points to match your exact responsibilities and achievements as your internship progresses.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="skills-section" id="education">
+        <div class="section">
+          <div class="section-kicker">Academic background</div>
+          <h2 class="section-title">Education & development</h2>
+          <div class="education">
+            <article class="education-card"><h3>Bachelor of Business Administration (BBA)</h3><p>Specialization: Finance<br>Mangalmay Institute of Management & Technology, Greater Noida<br>Expected graduation: 2027</p></article>
+            <article class="education-card"><h3>Class XII — CBSE</h3><p>Sahil Public School, Greater Noida<br>2024 · 75%</p></article>
+            <article class="education-card"><h3>Class X — CBSE</h3><p>RBC Children Academy, Chaubeypur, Varanasi<br>2022 · 55%</p></article>
+            <article class="education-card"><h3>Professional learning</h3><p>Advanced MS Excel<br>Diploma in Financial Accounting (DFA)<br>Continuously developing practical accounting and taxation skills.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="resume">
+        <div class="section-kicker">Career snapshot</div>
+        <h2 class="section-title">Resume & key details</h2>
+        <div class="resume-panel"><h3>Rishu Singh — Aspiring Financial Analyst</h3><p>BBA Finance student and Accounts Intern with practical learning in accounting, taxation, Excel reporting, Tally Prime, GST and TDS. Interested in developing further expertise in financial analysis, financial modelling, budgeting and forecasting.</p><div class="resume-actions"><button class="btn btn-gold" type="button" onclick="window.print()">Print / save this portfolio as PDF ↗</button><a class="btn" style="border:1px solid var(--line)" href="#contact">Contact me</a></div><p class="notice">Your original resume file was not attached in this message, so this section uses the education and certification details available here. A separate resume download can be added once you provide the latest resume PDF or DOCX.</p></div>
+        <div class="section-kicker" style="margin-top:36px">Languages</div><div class="language-pills"><span>English</span><span>Hindi</span></div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-inner">
+          <div>
+            <div class="section-kicker">Let's connect</div>
+            <h2 class="section-title">Good work starts with a conversation.</h2>
+            <p class="section-lead">I'm interested in learning from finance professionals, growing my practical skills, and connecting with people across accounting and finance.</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:Rishusingh5735@gmail.com"><span><small>Email</small><strong>Rishusingh5735@gmail.com</strong></span><span aria-hidden="true">↗</span></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/rishu-singh-044179351" target="_blank" rel="noopener noreferrer"><span><small>LinkedIn</small><strong>linkedin.com/in/rishu-singh-044179351</strong></span><span aria-hidden="true">↗</span></a>
+            <a class="contact-link" href="#top"><span><small>Back to top</small><strong>Return to the beginning</strong></span><span aria-hidden="true">↑</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="footer-inner"><span>© <span id="year">2026</span> Rishu Singh</span><span>Built with purpose · Finance portfolio</span></div></footer>
+  </div>
+  <script>
+    // Keep the footer year current without relying on external services.
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Smooth-scroll fallback for browsers that don't support CSS smooth scrolling.
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
